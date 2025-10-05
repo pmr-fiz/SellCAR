@@ -10,4 +10,8 @@ __pycache__/
 *.pyo
 *.pyd
 .Python
+<<<<<<< HEAD
 pip-log.txt.venv/Lib/site-packages/_distutils_hack/__pycache__/__init__.cpython-311.pyc
+=======
+pip-log.txt
+>>>>>>> a6ccf16 (Add .gitignore for Python project)
