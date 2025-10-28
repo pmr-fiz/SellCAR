@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SellCAR</title>
+    <title>SellCAR - Продажа автомобилей</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,19 +14,20 @@
         }
         
         :root {
-            --primary: #8b0000;
-            --primary-light: #a52a2a;
-            --secondary: #f5f5dc;
+            --primary: #1a3a5f;
+            --primary-light: #2a5a8a;
+            --secondary: #f8f9fa;
+            --accent: #e63946;
             --dark: #333;
             --light: #fff;
-            --gold: #daa520;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
         }
         
         body {
             background-color: #f9f9f9;
             color: var(--dark);
             line-height: 1.6;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f8f3e6" opacity="0.2"/></svg>');
         }
         
         .container {
@@ -55,6 +56,7 @@
         .header-top .container {
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         
         .main-header {
@@ -75,11 +77,11 @@
         .logo h1 {
             font-size: 28px;
             color: var(--primary);
-            font-family: 'Georgia', serif;
+            font-weight: 700;
         }
         
         .logo span {
-            color: var(--dark);
+            color: var(--accent);
         }
         
         nav ul {
@@ -110,11 +112,11 @@
         }
         
         .action-btn {
-            background: var(--primary);
+            background: var(--accent);
             color: var(--light);
             border: none;
             padding: 10px 20px;
-            border-radius: 30px;
+            border-radius: 5px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
@@ -125,13 +127,15 @@
         }
         
         .action-btn:hover {
-            background: var(--primary-light);
+            background: #c1121f;
             transform: translateY(-2px);
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%238b5a2b"/></svg>');
+            background: linear-gradient(rgba(26, 58, 95, 0.8), rgba(26, 58, 95, 0.8)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
             height: 600px;
             display: flex;
             align-items: center;
@@ -149,22 +153,20 @@
         .hero h2 {
             font-size: 48px;
             margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-            font-family: 'Georgia', serif;
+            font-weight: 700;
         }
         
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         
         .btn {
             display: inline-block;
-            background: var(--primary);
+            background: var(--accent);
             color: var(--light);
             padding: 12px 30px;
-            border-radius: 30px;
+            border-radius: 5px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
@@ -174,11 +176,11 @@
         }
         
         .btn:hover {
-            background: var(--primary-light);
+            background: #c1121f;
             transform: translateY(-2px);
         }
         
-        /* About Section */
+        /* Features Section */
         .section {
             padding: 80px 0;
         }
@@ -194,7 +196,7 @@
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
-            font-family: 'Georgia', serif;
+            font-weight: 700;
         }
         
         .section-title h2:after {
@@ -205,108 +207,123 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: var(--gold);
+            background: var(--accent);
         }
         
         .section-title p {
-            color: var(--dark);
+            color: var(--gray);
             max-width: 700px;
             margin: 20px auto 0;
             font-size: 18px;
         }
         
-        .about-content {
+        .features {
             display: flex;
-            align-items: center;
-            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
         
-        .about-text {
-            flex: 1;
+        .feature-card {
+            background: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            flex: 1 1 300px;
+            max-width: 350px;
         }
         
-        .about-text h3 {
-            font-size: 28px;
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            color: var(--primary);
             margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
             color: var(--primary);
         }
         
-        .about-text p {
-            margin-bottom: 15px;
-            font-size: 18px;
-            line-height: 1.8;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Specialties */
-        .specialties {
+        /* Cars Section */
+        .cars {
             background-color: var(--secondary);
         }
         
-        .dishes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .car-grid {
+            display: flex;
+            flex-wrap: wrap;
             gap: 30px;
-            margin-top: 40px;
+            justify-content: center;
         }
         
-        .dish-card {
+        .car-card {
             background: var(--light);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: all 0.3s;
+            flex: 1 1 350px;
+            max-width: 400px;
         }
         
-        .dish-card:hover {
+        .car-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
-        .dish-image {
+        .car-image {
             height: 250px;
             overflow: hidden;
         }
         
-        .dish-image img {
+        .car-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: all 0.5s;
         }
         
-        .dish-card:hover .dish-image img {
+        .car-card:hover .car-image img {
             transform: scale(1.1);
         }
         
-        .dish-content {
+        .car-content {
             padding: 20px;
         }
         
-        .dish-content h3 {
+        .car-content h3 {
             font-size: 22px;
             margin-bottom: 10px;
             color: var(--primary);
         }
         
-        .dish-content p {
+        .car-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
             margin-bottom: 15px;
-            color: #555;
         }
         
-        .dish-price {
+        .car-detail {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+        }
+        
+        .car-detail i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        .car-price {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -319,41 +336,40 @@
             color: var(--primary);
         }
         
-        /* Menu Section */
-        .menu-tabs {
+        /* Services Section */
+        .services-content {
             display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
             flex-wrap: wrap;
-        }
-        
-        .tab-btn {
-            background: none;
-            border: none;
-            padding: 12px 25px;
-            margin: 0 5px;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--dark);
-            transition: all 0.3s;
-            border-radius: 30px;
-        }
-        
-        .tab-btn.active, .tab-btn:hover {
-            background: var(--primary);
-            color: var(--light);
-        }
-        
-        .menu-items {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .menu-item {
-            display: flex;
             align-items: center;
+            gap: 40px;
+        }
+        
+        .services-text {
+            flex: 1 1 500px;
+        }
+        
+        .services-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .services-text p {
+            margin-bottom: 15px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .services-list {
+            flex: 1 1 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .service-item {
+            display: flex;
+            align-items: flex-start;
             padding: 20px;
             background: var(--light);
             border-radius: 10px;
@@ -361,45 +377,21 @@
             transition: all 0.3s;
         }
         
-        .menu-item:hover {
+        .service-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
-        .menu-item-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 20px;
+        .service-icon {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 15px;
             flex-shrink: 0;
         }
         
-        .menu-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .menu-item-content {
-            flex: 1;
-        }
-        
-        .menu-item-content h3 {
+        .service-content h4 {
             font-size: 20px;
             margin-bottom: 5px;
-            color: var(--primary);
-        }
-        
-        .menu-item-content p {
-            color: #666;
-            margin-bottom: 10px;
-            font-size: 15px;
-        }
-        
-        .menu-item-price {
-            font-weight: bold;
-            font-size: 18px;
             color: var(--primary);
         }
         
@@ -409,8 +401,10 @@
         }
         
         .testimonial-container {
-            max-width: 800px;
-            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
         }
         
         .testimonial {
@@ -418,8 +412,10 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin: 20px;
+            margin: 0;
             text-align: center;
+            flex: 1 1 300px;
+            max-width: 400px;
         }
         
         .testimonial-content {
@@ -457,8 +453,8 @@
         
         /* Contact Section */
         .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 40px;
         }
         
@@ -467,6 +463,7 @@
             color: var(--light);
             padding: 40px;
             border-radius: 10px;
+            flex: 1 1 400px;
         }
         
         .contact-info h3 {
@@ -483,7 +480,7 @@
         .contact-icon {
             font-size: 24px;
             margin-right: 15px;
-            color: var(--gold);
+            color: var(--accent);
         }
         
         .contact-text h4 {
@@ -496,6 +493,7 @@
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            flex: 1 1 400px;
         }
         
         .contact-form h3 {
@@ -515,7 +513,8 @@
         }
         
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #ddd;
@@ -536,10 +535,14 @@
         }
         
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 40px;
             margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
         }
         
         .footer-column h3 {
@@ -556,7 +559,7 @@
             bottom: 0;
             width: 50px;
             height: 2px;
-            background: var(--gold);
+            background: var(--accent);
         }
         
         .footer-links {
@@ -574,7 +577,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--gold);
+            color: var(--accent);
             padding-left: 5px;
         }
         
@@ -597,7 +600,7 @@
         }
         
         .social-links a:hover {
-            background: var(--gold);
+            background: var(--accent);
             transform: translateY(-3px);
         }
         
@@ -616,10 +619,6 @@
             
             .hero h2 {
                 font-size: 36px;
-            }
-            
-            .about-content {
-                flex-direction: column;
             }
         }
         
@@ -643,6 +642,11 @@
             .section {
                 padding: 60px 0;
             }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -653,11 +657,16 @@
             .header-top .container {
                 flex-direction: column;
                 align-items: center;
+                gap: 10px;
             }
             
             .action-btn {
                 padding: 8px 15px;
                 font-size: 14px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
             }
         }
     </style>
@@ -681,22 +690,23 @@
             <div class="container">
                 <div class="header-content">
                     <div class="logo">
-                        <h1>Sell <span>CAR</span></h1>
+                        <h1>Sell<span>CAR</span></h1>
                     </div>
                     
                     <nav>
                         <ul>
                             <li><a href="#home">Главная</a></li>
-                            <li><a href="#about">О нас</a></li>
-                            <li><a href="#specialties">Услуги</a></li>
-                            <li><a href="#menu">Модели</a></li>
-                            <li><a href="#contact">Контакт</a></li>
+                            <li><a href="#features">Преимущества</a></li>
+                            <li><a href="#cars">Автомобили</a></li>
+                            <li><a href="#services">Услуги</a></li>
+                            <li><a href="#contact">Контакты</a></li>
+                            <li><a href="register.html">Регистрация</a></li>
                         </ul>
                     </nav>
                     
                     <div class="header-actions">
-                        <button class="action-btn">
-                            <i class="fas fa-calendar"></i> Личный кабинет
+                        <button class="action-btn" onclick="window.location.href='register.html'">
+                            <i class="fas fa-user"></i> Личный кабинет
                         </button>
                     </div>
                 </div>
@@ -708,189 +718,188 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h2>Найдите машину подходящую вам</h2>
-                <p>Мы обеспечим вам возможность найти машину которая вам нравится по стоймости которая вам подходит</p>
-                <a href="#menu" class="btn">Модели</a>
+                <h2>Найдите автомобиль своей мечты</h2>
+                <p>Мы предлагаем широкий выбор автомобилей по доступным ценам с гарантией качества</p>
+                <a href="#cars" class="btn">Смотреть автомобили</a>
             </div>
         </div>
     </section>
     
-    <!-- About Section -->
-    <section class="section" id="about">
+    <!-- Features Section -->
+    <section class="section" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Добро пожаловать!</h2>
-                <p>Спасибо что выбрали наш сервис</p>
+                <h2>Почему выбирают нас</h2>
+                <p>Мы предлагаем лучшие условия для покупки автомобиля</p>
             </div>
             
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Поможем вам с удовольствием!</h3>
-                    <a href="#contact" class="btn">Выберите свою машину</a>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Гарантия качества</h3>
+                    <p>Все автомобили проходят тщательную проверку перед продажей</p>
                 </div>
                 
-                <div class="about-image">
-                    <img src=>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Specialties -->
-    <section class="section specialties" id="specialties">
-        <div class="container">
-            <div class="section-title">
-                <h2></h2>
-                <p></p>
-            </div>
-            
-            <div class="dishes">
-                <div class="dish-card">
-                    <div class="dish-image">
-                        <img src=>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tag"></i>
                     </div>
-                    <div class="dish-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class="dish-price">
-                            <span class="price"></span>
-                            <button class="btn"></button>
-                        </div>
-                    </div>
+                    <h3>Лучшие цены</h3>
+                    <p>Мы предлагаем конкурентные цены и выгодные условия кредитования</p>
                 </div>
                 
-                <div class="dish-card">
-                    <div class="dish-image">
-                        <img src=>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
                     </div>
-                    <div class="dish-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class="dish-price">
-                            <span class="price"></span>
-                            <button class="btn"></button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class=>
-                    <div class=>
-                        <img src=>
-                    </div>
-                    <div class=>
-                        <h3></h3>
-                        <p></p>
-                        <div class=>
-                            <span class=></span>
-                            <button class=></button>
-                        </div>
-                    </div>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Наша служба поддержки всегда готова помочь вам</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Menu Section -->
-    <section class="section" id="menu">
+    <!-- Cars Section -->
+    <section class="section cars" id="cars">
         <div class="container">
             <div class="section-title">
-                <h2></h2>
-                <p></p>
+                <h2>Популярные автомобили</h2>
+                <p>Широкий выбор автомобилей различных марок и моделей</p>
             </div>
             
-            <div class="menu-tabs">
-                <button class="tab-btn active"></button>
-                <button class="tab-btn"></button>
-                <button class="tab-btn"></button>
-                <button class="tab-btn"></button>
+            <div class="car-grid">
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Toyota Camry">
+                    </div>
+                    <div class="car-content">
+                        <h3>Toyota Camry 2022</h3>
+                        <div class="car-details">
+                            <div class="car-detail">
+                                <i class="fas fa-cog"></i> Автомат
+                            </div>
+                            <div class="car-detail">
+                                <i class="fas fa-gas-pump"></i> Бензин
+                            </div>
+                            <div class="car-detail">
+                                <i class="fas fa-tachometer-alt"></i> 25 000 км
+                            </div>
+                        </div>
+                        <div class="car-price">
+                            <span class="price">2 450 000 ₽</span>
+                            <button class="btn">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="BMW X5">
+                    </div>
+                    <div class="car-content">
+                        <h3>BMW X5 2021</h3>
+                        <div class="car-details">
+                            <div class="car-detail">
+                                <i class="fas fa-cog"></i> Автомат
+                            </div>
+                            <div class="car-detail">
+                                <i class="fas fa-gas-pump"></i> Дизель
+                            </div>
+                            <div class="car-detail">
+                                <i class="fas fa-tachometer-alt"></i> 35 000 км
+                            </div>
+                        </div>
+                        <div class="car-price">
+                            <span class="price">4 800 000 ₽</span>
+                            <button class="btn">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="car-card">
+                    <div class="car-image">
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mercedes-Benz C-Class">
+                    </div>
+                    <div class="car-content">
+                        <h3>Mercedes-Benz C-Class</h3>
+                        <div class="car-details">
+                            <div class="car-detail">
+                                <i class="fas fa-cog"></i> Автомат
+                            </div>
+                            <div class="car-detail">
+                                <i class="fas fa-gas-pump"></i> Бензин
+                            </div>
+                            <div class="car-detail">
+                                <i class="fas fa-tachometer-alt"></i> 18 000 км
+                            </div>
+                        </div>
+                        <div class="car-price">
+                            <span class="price">3 900 000 ₽</span>
+                            <button class="btn">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши услуги</h2>
+                <p>Мы предлагаем полный спектр услуг для наших клиентов</p>
             </div>
             
-            <div class="menu-items">
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src=>
-                    </div>
-                    <div class="menu-item-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class=>
-                    </div>
+            <div class="services-content">
+                <div class="services-text">
+                    <h3>Комплексный подход к покупке автомобиля</h3>
+                    <p>Мы понимаем, что покупка автомобиля - это важное решение, поэтому предлагаем полный спектр услуг, чтобы сделать этот процесс максимально комфортным для вас.</p>
+                    <p>Наши специалисты помогут вам на всех этапах: от выбора подходящего автомобиля до оформления всех необходимых документов.</p>
+                    <a href="#contact" class="btn">Связаться с нами</a>
                 </div>
                 
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src=>
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Подбор автомобиля</h4>
+                            <p>Поможем выбрать автомобиль, который идеально подходит вашим потребностям и бюджету.</p>
+                        </div>
                     </div>
-                    <div class="menu-item-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class=></div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Оформление документов</h4>
+                            <p>Возьмем на себя все формальности, связанные с оформлением покупки и регистрацией.</p>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src=>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Кредитование и лизинг</h4>
+                            <p>Предложим выгодные условия кредитования и лизинга от наших партнеров.</p>
+                        </div>
                     </div>
-                    <div class="menu-item-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class=></div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src=>
-                    </div>
-                    <div class="menu-item-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class=></div>
-                    </div>
-                </div>
-                
-                <div class=>
-                    <div class=>
-                        <img src=>
-                    </div>
-                    <div class="menu-item-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class=></div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src=>
-                    </div>
-                    <div class="menu-item-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class=></div>
-                    </div>
-                </div>
-                
-                <div class=>
-                    <div class=>
-                        <img src=>
-                    </div>
-                    <div class="menu-item-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class=></div>
-                    </div>
-                </div>
-                
-                <div class="menu-item">
-                    <div class="menu-item-image">
-                        <img src=>
-                    </div>
-                    <div class="menu-item-content">
-                        <h3></h3>
-                        <p></p>
-                        <div class=></div>
+                    
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Сервисное обслуживание</h4>
+                            <p>Предоставим скидки на обслуживание в наших авторизованных сервисных центрах.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -901,22 +910,52 @@
     <section class="section testimonials">
         <div class="container">
             <div class="section-title">
-                <h2></h2>
-                <p></p>
+                <h2>Отзывы клиентов</h2>
+                <p>Что говорят о нас наши клиенты</p>
             </div>
             
             <div class="testimonial-container">
                 <div class="testimonial">
                     <div class="testimonial-content">
-                       
+                        "Очень доволен покупкой автомобиля через SellCAR. Специалисты помогли выбрать идеальный вариант, оформили все документы быстро и без проблем. Рекомендую!"
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
-                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><circle cx='30' cy='30' r='30' fill='%23d9c9a9'/><text x='30' y='35' font-family='Arial' font-size='14' fill='%238b0000' text-anchor='middle'>МП</text></svg>" alt="Марко Петровић">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><circle cx='30' cy='30' r='30' fill='%23d9c9a9'/><text x='30' y='35' font-family='Arial' font-size='14' fill='%231a3a5f' text-anchor='middle'>АИ</text></svg>" alt="Алексей Иванов">
                         </div>
                         <div class="author-info">
-                            <h4></h4>
-                            <p></p>
+                            <h4>Алексей Иванов</h4>
+                            <p>Клиент SellCAR</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Покупка автомобиля через SellCAR прошла легко и без хлопот. Особенно понравился сервис trade-in - смог сдать старую машину и получить скидку на новую. Спасибо!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><circle cx='30' cy='30' r='30' fill='%23d9c9a9'/><text x='30' y='35' font-family='Arial' font-size='14' fill='%231a3a5f' text-anchor='middle'>МС</text></svg>" alt="Мария Смирнова">
+                        </div>
+                        <div class="author-info">
+                            <h4>Мария Смирнова</h4>
+                            <p>Клиент SellCAR</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Долго искал подходящий внедорожник. В SellCAR нашел именно то, что хотел, по хорошей цене. Все честно и прозрачно. Буду рекомендовать друзьям!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><circle cx='30' cy='30' r='30' fill='%23d9c9a9'/><text x='30' y='35' font-family='Arial' font-size='14' fill='%231a3a5f' text-anchor='middle'>ДП</text></svg>" alt="Дмитрий Петров">
+                        </div>
+                        <div class="author-info">
+                            <h4>Дмитрий Петров</h4>
+                            <p>Клиент SellCAR</p>
                         </div>
                     </div>
                 </div>
@@ -928,21 +967,21 @@
     <section class="section" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2></h2>
-                <p></p>
+                <h2>Свяжитесь с нами</h2>
+                <p>Мы всегда готовы ответить на ваши вопросы</p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3></h3>
+                    <h3>Контактная информация</h3>
                     
                     <div class="contact-detail">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-text">
-                            <h4></h4>
-                            <p></p>
+                            <h4>Адрес</h4>
+                            <p>г. Москва, ул. Автозаводская, д. 23</p>
                         </div>
                     </div>
                     
@@ -951,8 +990,8 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <div class="contact-text">
-                            <h4></h4>
-                            <p></p>
+                            <h4>Телефон</h4>
+                            <p>+7 935 154 15 85</p>
                         </div>
                     </div>
                     
@@ -961,8 +1000,8 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-text">
-                            <h4></h4>
-                            <p></p>
+                            <h4>Email</h4>
+                            <p>info@SellCAR.ru</p>
                         </div>
                     </div>
                     
@@ -979,34 +1018,41 @@
                 </div>
                 
                 <div class="contact-form">
-                    <h3></h3>
-                    <form id="reservation-form">
+                    <h3>Оставьте заявку</h3>
+                    <form id="contact-form">
                         <div class="form-group">
-                            <label for="name"></label>
+                            <label for="name">Ваше имя</label>
                             <input type="text" id="name" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone"></label>
+                            <label for="phone">Телефон</label>
                             <input type="tel" id="phone" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="date"></label>
-                            <input type="date" id="date" required>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="time"></label>
-                            <input type="time" id="time" required>
+                            <label for="car-type">Интересующий автомобиль</label>
+                            <select id="car-type">
+                                <option value="">Выберите тип автомобиля</option>
+                                <option value="sedan">Седан</option>
+                                <option value="suv">Внедорожник</option>
+                                <option value="hatchback">Хэтчбек</option>
+                                <option value="coupe">Купе</option>
+                                <option value="other">Другой</option>
+                            </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="people"></label>
-                            <input type="number" id="people" min="1" max="20" required>
+                            <label for="message">Сообщение</label>
+                            <textarea id="message" placeholder="Расскажите о ваших пожеланиях"></textarea>
                         </div>
                         
-                        <button type="submit" class="btn"></button>
+                        <button type="submit" class="btn">Отправить заявку</button>
                     </form>
                 </div>
             </div>
@@ -1018,121 +1064,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
-                    <h3></h3>
-                    <p></p>
+                    <h3>SellCAR</h3>
+                    <p>Мы помогаем найти идеальный автомобиль по доступной цене с гарантией качества и полным спектром услуг.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3></h3>
-                    <ul class="footer-links">
-                        <li><a href="#home"></a></li>
-                        <li><a href="#about"></a></li>
-                        <li><a href="#specialties"></a></li>
-                        <li><a href="#menu"></a></li>
-                        <li><a href="#contact"></a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Рабочее время</h3>
-                    <ul class="footer-links">
-                        <li>Понедельник - Пятница: 10:00 - 23:00</li>
-                        <li>Суббота - Воскресенье: 11:00 - 24:00</li>
-                        <li>Праздники: 12:00 - 22:00</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Контакт</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i></li>
-                        <li><i class="fas fa-phone"></i></li>
-                        <li><i class="fas fa-envelope"></i></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy;</p>
-            </div>
-        </div>
-    </footer>
-    
-    <script>
-        // Мени табови
-        document.querySelectorAll('.tab-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Уклони активну класу са свих табова
-                document.querySelectorAll('.tab-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Додај активну класу кликнутом табу
-                this.classList.add('active');
-                
-                // Овде би ишла логика за приказ одговарајућег садржаја
-            });
-        });
-        
-        // Резервациона форма
-        const reservationForm = document.getElementById('reservation-form');
-        reservationForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Прикупљање података из форме
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const people = document.getElementById('people').value;
-            
-            // Приказ потврде
-            alert(`Хвала ${name}! Ваша резервација за ${people} особе на дан ${date} у ${time} је прихваћена. Контактираћемо вас на број ${phone} за потврду.`);
-            
-            // Ресетовање форме
-            reservationForm.reset();
-        });
-        
-        // Анимација за додавање у корпу
-        document.querySelectorAll('.btn').forEach(button => {
-            if (button.textContent === 'Поручи') {
-                button.addEventListener('click', function() {
-                    const dishName = this.closest('.dish-card').querySelector('h3').textContent;
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
                     
-                    // Привремена анимација
-                    this.textContent = 'Додато!';
-                    this.style.backgroundColor = '#28a745';
-                    
-                    setTimeout(() => {
-                        this.textContent = 'Поручи';
-                        this.style.backgroundColor = '';
-                    }, 2000);
-                    
-                    alert(`Додали сте "${dishName}" у корпу!`);
-                });
-            }
-        });
-        
-        // Анимација скроловања за навигацију
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
