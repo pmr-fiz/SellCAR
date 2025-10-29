@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация - SellCAR</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a3a5f;
+            --primary-light: #2a5a8a;
+            --secondary: #f8f9fa;
+            --accent: #e63946;
+            --dark: #333;
+            --light: #fff;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-top {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .main-header {
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 5px 10px;
+            transition: all 0.3s;
+            font-size: 18px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .action-btn {
+            background: var(--accent);
+            color: var(--light);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-left: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+        
+        .action-btn:hover {
+            background: #c1121f;
+            transform: translateY(-2px);
+        }
+        
+        /* Registration Section */
+        .registration-section {
+            padding: 80px 0;
+            background: linear-gradient(rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.9)), url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+        }
+        
+        .registration-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .registration-info {
+            flex: 1 1 400px;
+            color: var(--light);
+            padding: 30px;
+        }
+        
+        .registration-info h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .registration-info p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefits-list i {
+            color: var(--accent);
+            margin-right: 10px;
+            font-size: 20px;
+            margin-top: 3px;
+        }
+        
+        .registration-form-container {
+            flex: 1 1 400px;
+            background: var(--light);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .form-header {
+            background: var(--primary);
+            color: var(--light);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .form-header h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .form-header p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        
+        .registration-form {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(26, 58, 95, 0.2);
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1 1 200px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-group input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .checkbox-group label {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .checkbox-group a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .checkbox-group a:hover {
+            text-decoration: underline;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--light);
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: #c1121f;
+            transform: translateY(-2px);
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        
+        .login-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: var(--light);
+            padding: 60px 0 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: var(--light);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .registration-container {
+                flex-direction: column;
+            }
+            
+            .registration-info {
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .registration-section {
+                padding: 60px 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .header-top .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .action-btn {
+                padding: 8px 15px;
+                font-size: 14px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <i class="fas fa-phone"></i> +7 935 154 15 85
+                    <i class="fas fa-envelope" style="margin-left: 15px;"></i> info@SellCAR.ru
+                </div>
+                <div class="working-hours">
+                    <i class="fas fa-clock"></i> Пн-Пт: 10:00-23:00, Сб-Вс: 11:00-24:00
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="index.html" style="text-decoration: none;">
+                            <h1>Sell<span>CAR</span></h1>
+                        </a>
+                    </div>
+                    
+                    <nav>
+                        <ul>
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="index.html#features">Преимущества</a></li>
+                            <li><a href="index.html#cars">Автомобили</a></li>
+                            <li><a href="register.html" style="color: var(--primary);">Регистрация</a></li>
+                            <li><a href="index.html#contact">Контакты</a></li>
+                        </ul>
+                    </nav>
+                    
+                    <div class="header-actions">
+                        <button class="action-btn" onclick="window.location.href='login.html'">
+                            <i class="fas fa-sign-in-alt"></i> Войти
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Registration Section -->
+    <section class="registration-section">
+        <div class="container">
+            <div class="registration-container">
+                <div class="registration-info">
+                    <h2>Присоединяйтесь к SellCAR</h2>
+                    <p>Создайте аккаунт, чтобы получить доступ к персонализированным предложениям, сохранить понравившиеся автомобили и упростить процесс покупки.</p>
+                    
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Персональные предложения</strong>
+                                <p>Получайте уведомления о новых автомобилях, соответствующих вашим предпочтениям</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Сохраненные автомобили</strong>
+                                <p>Добавляйте понравившиеся автомобили в избранное для быстрого доступа</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Быстрое оформление</strong>
+                                <p>Сохраняйте свои данные для быстрого оформления заявок на покупку</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>История просмотров</strong>
+                                <p>Отслеживайте автомобили, которые вы рассматривали ранее</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="registration-form-container">
+                    <div class="form-header">
+                        <h3>Создать аккаунт</h3>
+                        <p>Заполните форму для регистрации</p>
+                    </div>
+                    
+                    <form class="registration-form" id="registration-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">Имя *</label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="last-name">Фамилия *</label>
+                                <input type="text" id="last-name" name="last-name" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="password">Пароль *</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirm-password">Подтвердите пароль *</label>
+                                <input type="password" id="confirm-password" name="confirm-password" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="preferred-car-type">Предпочтительный тип автомобиля</label>
+                            <select id="preferred-car-type" name="preferred-car-type">
+                                <option value="">Выберите тип</option>
+                                <option value="sedan">Седан</option>
+                                <option value="suv">Внедорожник</option>
+                                <option value="hatchback">Хэтчбек</option>
+                                <option value="coupe">Купе</option>
+                                <option value="minivan">Минивэн</option>
+                                <option value="other">Другой</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="budget">Бюджет (руб.)</label>
+                            <select id="budget" name="budget">
+                                <option value="">Выберите бюджет</option>
+                                <option value="0-500000">до 500 000</option>
+                                <option value="500000-1000000">500 000 - 1 000 000</option>
+                                <option value="1000000-2000000">1 000 000 - 2 000 000</option>
+                                <option value="2000000-5000000">2 000 000 - 5 000 000</option>
+                                <option value="5000000+">свыше 5 000 000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">Я согласен с <a href="#">условиями использования</a> и <a href="#">политикой конфиденциальности</a> *</label>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Я хочу получать информацию о специальных предложениях и новых поступлениях</label>
+                        </div>
+                        
+                        <button type="submit" class="btn">Зарегистрироваться</button>
+                        
+                        <div class="login-link">
+                            Уже есть аккаунт? <a href="login.html">Войти</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>SellCAR</h3>
+                    <p>Мы помогаем найти идеальный автомобиль по доступной цене с гарантией качества и полным спектром услуг.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="index.html#features">Преимущества</a></li>
+                        <li><a href="index.html#cars">Автомобили</a></li>
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="index.html#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Рабочее время</h3>
+                    <ul class="footer-links">
+                        <li>Понедельник - Пятница: 10:00 - 23:00</li>
+                        <li>Суббота - Воскресенье: 11:00 - 24:00</li>
+                        <li>Праздники: 12:00 - 22:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Контакт</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Автозаводская, д. 23</li>
+                        <li><i class="fas fa-phone"></i> +7 935 154 15 85</li>
+                        <li><i class="fas fa-envelope"></i> info@SellCAR.ru</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 SellCAR. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Валидация формы регистрации
+        const registrationForm = document.getElementById('registration-form');
+        
+        registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Примитивная валидация
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const terms = document.getElementById('terms').checked;
+            
+            if (password !== confirmPassword) {
+                alert('Пароли не совпадают!');
+                return;
+            }
+            
+            if (!terms) {
+                alert('Необходимо принять условия использования!');
+                return;
+            }
+            
+            // В реальном приложении здесь был бы AJAX-запрос к серверу
+            alert('Регистрация прошла успешно! На ваш email отправлено письмо с подтверждением.');
+            registrationForm.reset();
+            
+            // Перенаправление на главную страницу
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 2000);
+        });
+        
+        // Валидация пароля в реальном времени
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirm-password');
+        
+        function validatePassword() {
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                confirmPasswordInput.style.borderColor = 'red';
+            } else {
+                confirmPasswordInput.style.borderColor = '#ddd';
+            }
+        }
+        
+        passwordInput.addEventListener('input', validatePassword);
+        confirmPasswordInput.addEventListener('input', validatePassword);
+    </script>
+</body>
+</html>
